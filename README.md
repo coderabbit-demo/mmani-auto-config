@@ -39,6 +39,18 @@ docker compose down
 
 Alternatively, run `npm ci && npm run check` and serve `dist/` at the root of any static web server. No Node process is needed in production. The app is usable offline after loading, but does not install a service worker for offline reloads.
 
+## Host on Vercel
+
+Import this repository into Vercel as a Vite project. The committed `vercel.json` installs with `npm ci`, runs `npm run check`, and serves `dist/`. Node.js 24 is selected by `package.json`. No environment variables, backend, or API keys are needed.
+
+The Vercel project is `coderabbitai/mmani-auto-config`. For CLI deployment from a linked checkout:
+
+```sh
+vercel --prod --scope coderabbitai
+```
+
+Vercel uses the same browser-local Content Security Policy as the Docker host. Drafts belong to the current browser origin, so an existing localhost draft will not appear on the hosted domain.
+
 ## What the questions configure
 
 - Repository inheritance, profile and tone.
