@@ -41,6 +41,8 @@ Alternatively, run `npm ci && npm run check` and serve `dist/` at the root of an
 
 ## Host on Vercel
 
+Live application: [fe-coderabbit-auto-config.vercel.app](https://fe-coderabbit-auto-config.vercel.app). The `coderabbitai/fe-coderabbit-auto-config` project is connected to this repository with `main` as its production branch.
+
 Import this repository into Vercel as a Vite project. The committed `vercel.json` installs with `npm ci`, runs `npm run check`, and serves `dist/`. Node.js 24 is selected by `package.json`. No environment variables, backend, or API keys are needed.
 
 The Vercel project is `coderabbitai/fe-coderabbit-auto-config`. For CLI deployment from a linked checkout:

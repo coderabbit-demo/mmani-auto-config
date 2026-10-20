@@ -52,6 +52,18 @@ The Docker build runs `npm run check` itself. For a temporary isolated local ver
 
 The supported target is desktop browsers. Safari and mobile browser support are not release requirements. Existing narrow-viewport tests are extra regression coverage, not a promise of mobile support.
 
+## Vercel hosting
+
+At the user’s request, deployed to the `coderabbitai` team as `fe-coderabbit-auto-config`:
+
+- Public production URL: https://fe-coderabbit-auto-config.vercel.app
+- Vercel project: https://vercel.com/coderabbitai/fe-coderabbit-auto-config
+- User connected GitHub repository `coderabbit-demo/mmani-auto-config`; production branch is `main`.
+- `vercel.json` runs `npm ci` and `npm run check`, serves `dist/`, and applies the Docker host’s browser-local CSP and security headers.
+- Vercel cloud build passed all 44 unit tests, schema integrity checks, TypeScript checks, and production bundling.
+- All 18 desktop Chromium/Firefox browser tests passed against the public production URL. Public HTTP access returned 200 without Vercel sign-in.
+- Local Vercel linkage and credentials are ignored by Git and excluded from CLI deployment uploads. No application environment variables or API keys are required.
+
 ## What remains outside local verification
 
 - Assistive-technology testing and a full WCAG audit have not been performed. Safari/WebKit and mobile-device support are outside the release requirements.
