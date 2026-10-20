@@ -43,7 +43,7 @@ Alternatively, run `npm ci && npm run check` and serve `dist/` at the root of an
 
 Import this repository into Vercel as a Vite project. The committed `vercel.json` installs with `npm ci`, runs `npm run check`, and serves `dist/`. Node.js 24 is selected by `package.json`. No environment variables, backend, or API keys are needed.
 
-The Vercel project is `coderabbitai/mmani-auto-config`. For CLI deployment from a linked checkout:
+The Vercel project is `coderabbitai/fe-coderabbit-auto-config`. For CLI deployment from a linked checkout:
 
 ```sh
 vercel --prod --scope coderabbitai
