@@ -59,10 +59,14 @@ At the user’s request, deployed to the `coderabbitai` team as `fe-coderabbit-a
 - Public production URL: https://fe-coderabbit-auto-config.vercel.app
 - Vercel project: https://vercel.com/coderabbitai/fe-coderabbit-auto-config
 - User connected GitHub repository `coderabbit-demo/mmani-auto-config`; production branch is `main`.
-- `vercel.json` runs `npm ci` and `npm run check`, serves `dist/`, and applies the Docker host’s browser-local CSP and security headers.
+- `vercel.json` runs `npm ci` and `npm run check`, serves `dist/`, and applies the Docker host’s security headers, allowing same-origin connections for hosted analytics.
 - Vercel cloud build passed all 44 unit tests, schema integrity checks, TypeScript checks, and production bundling.
 - All 18 desktop Chromium/Firefox browser tests passed against the public production URL. Public HTTP access returned 200 without Vercel sign-in.
 - Local Vercel linkage and credentials are ignored by Git and excluded from CLI deployment uploads. No application environment variables or API keys are required.
+
+## Vercel Analytics
+
+At the user’s request, Vercel-hosted builds include `@vercel/analytics/react` for page views. The build receives only Vercel’s public analytics configuration. Query strings and fragments are stripped before tracking; custom events are blocked, and form values are not passed to analytics. Local/Docker/static builds omit the component. Docker retains `connect-src 'none'`; Vercel permits same-origin analytics connections. Web Analytics was already enabled in the project.
 
 ## What remains outside local verification
 

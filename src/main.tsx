@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { characterCount, defaults, loadDraft, prepareExport, saveDraft, schemaMeta, type Answers } from './config';
+import { HostedAnalytics } from './analytics';
 import './style.css';
 
 const steps = ['Repository', 'Profile & tone', 'Scope & paths', 'Coding guidelines', 'Linked repositories', 'Automation & output', 'Export'];
@@ -170,4 +171,4 @@ function App() {
     </main>
   </div></Errors>;
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<React.StrictMode><App /><HostedAnalytics /></React.StrictMode>);

@@ -51,7 +51,7 @@ The Vercel project is `coderabbitai/fe-coderabbit-auto-config`. For CLI deployme
 vercel --prod --scope coderabbitai
 ```
 
-Vercel uses the same browser-local Content Security Policy as the Docker host. Drafts belong to the current browser origin, so an existing localhost draft will not appear on the hosted domain.
+Vercel builds include `@vercel/analytics/react` for basic page-view counts. Web Analytics must be enabled in the Vercel project. The Vercel CSP allows same-origin analytics connections; Docker and ordinary static builds omit analytics and keep runtime connections disabled. Drafts belong to the current browser origin, so an existing localhost draft will not appear on the hosted domain.
 
 ## What the questions configure
 
@@ -95,7 +95,7 @@ The schema's relevant limits are 250 tone characters, 20,000 instruction charact
 
 ## Local drafts and privacy
 
-All questionnaire generation, validation, drafts, and downloads stay in the browser. There is no analytics, remote AI call, repository inspection, or runtime request carrying answers. Fonts and the approved CodeRabbit logotype are served locally. Documentation links contact external sites only when clicked. The `web_search` answer configures CodeRabbit's future review behavior; it does not activate web requests in this app.
+All questionnaire generation, validation, drafts, and downloads stay in the browser. There is no remote AI call, repository inspection, or runtime request carrying answers. Vercel-hosted builds count page views with Vercel Web Analytics; custom events are blocked, URL query strings and fragments are removed before tracking, and questionnaire values are never passed to analytics. Local development, Docker, and ordinary static builds do not load analytics. Fonts and the approved CodeRabbit logotype are served locally. Documentation links contact external sites only when clicked. The `web_search` answer configures CodeRabbit's future review behavior; it does not activate web requests in this app.
 
 Drafts are stored unencrypted in localStorage on the current origin. Incomplete rows and invalid answers survive reloads; legacy drafts migrate with GitHub as the platform default. Storage failures show a persistent notice and generation/download remain available. Reset requires confirmation. Clear drafts on shared devices. Browser storage capacity and availability still depend on the host browser.
 
