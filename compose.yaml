@@ -2,5 +2,12 @@ services:
   web:
     build: .
     ports:
-      - "8080:8080"
+      - "${BIND_ADDRESS:-127.0.0.1}:${PORT:-8080}:8080"
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
     restart: unless-stopped

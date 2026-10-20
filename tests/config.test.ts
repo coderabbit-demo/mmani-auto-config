@@ -41,7 +41,7 @@ describe('configuration export', () => {
     expect(() => generateYaml({ ...defaults, linkedRepositories: [{ repository: 'https://github.com/org/repo', instructions: '' }] })).toThrow();
   });
   it('allows nested GitLab paths and enforces linked instruction length', () => {
-    expect(buildConfig({ ...defaults, linkedRepositories: [{ repository: 'group/subgroup/repo', instructions: 'API consumer' }] }).knowledge_base.linked_repositories).toHaveLength(1);
+    expect(buildConfig({ ...defaults, platform: 'gitlab', linkedRepositories: [{ repository: 'group/subgroup/repo', instructions: 'API consumer' }] }).knowledge_base.linked_repositories).toHaveLength(1);
     expect(() => buildConfig({ ...defaults, linkedRepositories: [{ repository: 'org/repo', instructions: 'x'.repeat(2001) }] })).toThrow();
   });
 });

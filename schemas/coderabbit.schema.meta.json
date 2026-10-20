@@ -1,0 +1,10 @@
+{
+  "source": "https://coderabbit.ai/integrations/schema.v2.json",
+  "resolvedSource": "https://www.coderabbit.ai/integrations/schema.v2.json",
+  "retrievedAt": "2026-10-20T00:57:23Z",
+  "verifiedOn": "2026-10-19",
+  "dialect": "https://json-schema.org/draft/2020-12/schema",
+  "sha256": "ebd53b7c9603a044833dc850fca22b0d7edf43e2fbe88a08ba138ad8e45501c2",
+  "etag": "\"e309bba87c85134c8c1437a374c9aab4\"",
+  "lastModified": "Tue, 20 Oct 2026 00:33:15 GMT"
+}

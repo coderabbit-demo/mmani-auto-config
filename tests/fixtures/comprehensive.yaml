@@ -1,0 +1,28 @@
+inheritance: true
+tone_instructions: State impact first; suggest a concrete fix.
+reviews:
+  profile: quiet
+  path_filters:
+    - '!dist/**'
+    - 'src/**'
+  path_instructions:
+    - path: src/api/**
+      instructions: Preserve response fields because clients upgrade independently.
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    base_branches:
+      - '^release/.*$'
+knowledge_base:
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - AGENTS.md
+      - files: docs/api.md
+        applyTo: src/api/**
+      - files: acme/standards:guidelines/api.md
+        applyTo: '**/*.ts'
+  linked_repositories:
+    - repository: group/subgroup/client
+      instructions: Consumes the orders response.
