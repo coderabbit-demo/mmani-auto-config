@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Analytics } from '@vercel/analytics/react';
 import { characterCount, defaults, loadDraft, prepareExport, saveDraft, schemaMeta, type Answers } from './config';
 import './style.css';
 
@@ -170,4 +171,4 @@ function App() {
     </main>
   </div></Errors>;
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<React.StrictMode><App /><Analytics /></React.StrictMode>);
